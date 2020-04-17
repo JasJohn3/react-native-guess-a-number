@@ -17,6 +17,7 @@ const generateRandomBetween = (min, max, exclude) => {
 };
 
 const GameScreen = (props) => {
+  //hooks utilizing useState to store a value for the number of guess
   const [currentGuess, setCurrentGuess] = useState(
     generateRandomBetween(1, 100, props.userChoice)
   );
@@ -25,13 +26,13 @@ const GameScreen = (props) => {
   const currentHigh = useRef(100);
 
   const { userChoice, onGameOver } = props;
-
+  //useEffect is anouther hook that allows for logic outside of the standard loop
   useEffect(() => {
     if (currentGuess === userChoice) {
       onGameOver(rounds);
     }
   }, [currentGuess, userChoice, onGameOver]);
-
+  //function to determine if the user is guiding the AI in the correct direction with Lower or Greater.
   const nextGuessHandler = (direction) => {
     if (
       (direction === "lower" && currentGuess < userChoice) ||

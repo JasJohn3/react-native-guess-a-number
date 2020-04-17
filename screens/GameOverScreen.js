@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 import Colors from "../constants/colors";
+
+//basic end game screen with a button that points to a method from app.js to restart the game.
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
